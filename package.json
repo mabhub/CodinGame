@@ -8,6 +8,7 @@
   "author": "Benjamin Marguin",
   "devDependencies": {
     "json-print": "0.0.5",
+    "median": "0.0.2",
     "uglifyjs": "^2.4.10",
     "watchify": "^3.6.1"
   }
