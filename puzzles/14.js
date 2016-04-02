@@ -4,19 +4,19 @@
 
 var App = function () {
 
-    var median = require('median');
+    const median = require('median');
     var length;
     var list = [];
 
     function _init () {
         var minX = Infinity;
         var maxX = -Infinity;
-        var total = parseInt(readline());
+        var total = +readline();
 
-        for (var i = 0; i < total; i++) {
-            var inputs = readline().split(' ');
-            var X      = parseInt(inputs[0]);
-            var Y      = parseInt(inputs[1]);
+        for (let i = 0; i < total; i++) {
+            let inputs = readline().split(' ');
+            let X      = +inputs[0];
+            let Y      = +inputs[1];
             maxX       = Math.max(maxX, X);
             minX       = Math.min(minX, X);
             list.push(Y);
@@ -33,7 +33,7 @@ var App = function () {
         var med   = Math.round(median(list));
         var cable = length;
 
-        list.forEach(function (value) {
+        list.forEach((value) => {
             cable += Math.abs(med - value);
         });
 
