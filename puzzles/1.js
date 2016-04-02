@@ -7,8 +7,16 @@ var App = function () {
     var links = [];
     var exits = [];
 
+    /**
+     * Return true if "node" is directly connected to node
+     * Otherwise return false.
+     */
     var _inLink = (node, link) => (node === link[0] || node === link[1]);
 
+    /**
+     * Return true if "link" is directly connected to a gateway
+     * Otherwise return false.
+     */
     function _isExitLink (link) {
         let exits_num = exits.length;
         for (let i = 0 ; i < exits_num ; i++) {
@@ -20,7 +28,19 @@ var App = function () {
         return false;
     }
 
+    /**
+     * Return true if "link" is directly connected to Skynet Agent
+     * Otherwise return false.
+     */
     var _isAgentLink = (agent_node, link) => (agent_node === link[0] || agent_node === link[1]);
+
+    /**
+     * Remove link_index element from links array
+     */
+    function _deleteLink (link_index) {
+        print(links[link_index].join(' '));
+        links.splice(link_index, 1);
+    }
 
     function _init () {
         let inputs    = readline().split(' ');
@@ -36,11 +56,6 @@ var App = function () {
         for (let i = 0; i < exits_num; i++) {
             exits.push(+readline());
         }
-    }
-
-    function _deleteLink (link_index) {
-        print(links[link_index].join(' '));
-        links.splice(link_index, 1);
     }
 
     function _doLoop () {
