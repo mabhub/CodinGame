@@ -59,30 +59,33 @@ var App = function () {
     }
 
     function _doLoop () {
-        mainloop: while (true) {
-            let agent_node = +readline();
-            let links_num   = links.length;
+        while (true) {
+            let agent_node   = +readline();
+            let links_num    = links.length;
+            let delete_index = false;
 
             /**
              * Check if agent is immediatly near exit
              */
             for (let i = 0 ; i < links_num ; i++) {
                 if (_isExitLink(links[i]) && _isAgentLink(agent_node, links[i])) {
-                    _deleteLink(i);
-                    continue mainloop;
+                    delete_index = i;
                 }
             }
 
             /**
              * If agent is not immediatly near exit,
              * delete any exit link
+             *
+             * TODO: Find solution to do a better choice
              */
-            for (let i = 0 ; i < links_num ; i++) {
+            if (delete_index === false) for (let i = 0 ; i < links_num ; i++) {
                 if (_isExitLink(links[i])) {
-                    _deleteLink(i);
-                    continue mainloop;
+                    delete_index = i;
                 }
             }
+
+            _deleteLink(delete_index);
         }
     }
 
