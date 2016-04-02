@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "watchify \"$1\" -t babelify -vo 'sync.js'"
+    "start": "watchify \"$1\" -t babelify -vo sync.js"
   },
   "author": "Benjamin Marguin",
   "dependencies": {},
@@ -11,7 +11,6 @@
     "babelify": "^7.2.0",
     "json-print": "0.0.5",
     "median": "0.0.2",
-    "uglifyjs": "^2.4.10",
     "watchify": "^3.7.0"
   }
 }
