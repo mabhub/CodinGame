@@ -2,8 +2,7 @@
  * Skeleton
  */
 
-var c   = require('../common.js');
-var log = c.log;
+const i = require('util').inspect; const log = (data) => printErr(i(data, { depth:3 }));
 
 var App = function () {
 
