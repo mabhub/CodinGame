@@ -13,21 +13,17 @@ const pts = {
 /**
  * Compute points of word
  */
-var points = (word) => word.split('').reduce((score, letter) => score += pts[letter], 0);
+const points = (word) => word.split('').reduce((score, letter) => score += pts[letter], 0);
 
 /**
  * Check if all letters from word are present within letters
  */
-var matchLetters = (word, letters) => word.split('').reduce((bool, letter) => {
-    if (bool !== true) return false;
-
-    if (letters.search(letter) > -1) {
-        letters = letters.replace(letter, '');
-        return true;
-    }
-
-    return false;
-}, true);
+const matchLetters =
+    (word, letters) => word.split('').reduce((bool, letter) =>
+        (letters.length > (letters = letters.replace(letter, '')).length)
+        ? bool && true
+        : false,
+    true);
 
 
 print(
