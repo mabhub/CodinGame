@@ -4,8 +4,6 @@
 
 var log = (data) => printErr(require('util').inspect(data, { depth:3 }));
 
-const getDir = (x, y) => (y > 0 ? 'S' : y < 0 ? 'N' : '') + (x > 0 ? 'E' : x < 0 ? 'W' : '');
-
 /**
  * Fetch initial values
  */
@@ -38,10 +36,8 @@ while (true) {
         y: Math.sign(light.y - thor.y)
     };
 
-    let dir = getDir(m.x, m.y)
-
     thor.x += m.x;
     thor.y += m.y;
 
-    print(dir);
+    print(('N S'[m.y + 1] + 'W E'[m.x + 1]).trim());
 }
